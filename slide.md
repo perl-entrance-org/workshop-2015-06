@@ -66,7 +66,7 @@
     
     app->start;
 
-__DATA__
+    __DATA__
 
 ## コード(2)
 
