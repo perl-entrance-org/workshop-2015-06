@@ -50,6 +50,47 @@
 
 - `mojo create`コマンドが生成する`Hoge`を`morbo`コマンドで実行します
     - ブラウザに, URLとして｢localhost:3000｣と入力した際, ｢Welcome to the Mojolicious real-time web framework!｣と表示されていればOKです!
+- 次に, `Hoge`のコードを見てみましょう
+
+## コード(1)
+    #!/usr/bin/env perl
+    use Mojolicious::Lite;
+    
+    # Documentation browser under "/perldoc"
+    plugin 'PODRenderer';
+    
+    get '/' => sub {
+      my $self = shift;
+      $self->render('index');
+    };
+    
+    app->start;
+
+__DATA__
+
+## コード(2)
+
+    @@ index.html.ep
+    % layout 'default';
+    % title 'Welcome';
+    Welcome to the Mojolicious real-time web framework!
+    
+    @@ layouts/default.html.ep
+    <!DOCTYPE html>
+    <html>
+      <head><title><%= title %></title></head>
+      <body><%= content %></body>
+    </html>
+
+## コントローラとテンプレート
+- コード(1)では, 接続したURLに対する処理が書かれています
+- コード(2)では, HTMLのテンプレートが書かれています
+    - Webアプリケーションを開発する際は, このように｢見た目の部分｣と｢処理の部分｣を分けて書くことが多いです
+- 今は1枚のスクリプトに全て書いていますが, 通常これらは別ファイルに分けて記述します
+
+## そして第6回へ...
+- 第6回では, いよいよMojoliciousを利用したWebサービスの開発に挑戦します!
+- ...が, その前に, 第5回まで紹介できなかったPerlの便利な機能と, テストについて紹介していきたいと思います
 
 # map と grep
 
@@ -218,7 +259,11 @@
 
 ## 練習問題
 
-** TODO **
+- 引数として与えられた文字列が, `数値A 演算子 数値B`という文字列であれば, その値を計算して, 結果を返すような関数`calc_string`を書いてみましょう
+    - ｢数値A｣は任意の桁の正･負の整数とします. また, 演算子は`+-*/%`が使えるものとします.
+    - 但し, 引数が与えられなかった場合(空の文字列の場合)は, undefを返します
+    - また, `数値A 演算子 数値B`というフォーマットと一致しない場合もundefを返します
+- 関数`calc_string`とwhile文を使って, `Ctrl`キーと`d`キーを押すまでの間標準入力から文字列を受け取り, 文字列に書かれた式を計算するようなコードを書いてみましょう
 
 # package / 名前空間
 
