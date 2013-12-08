@@ -1,9 +1,11 @@
 # Perl入学式 #5
 
 ## 今日の内容
+- 前回の復習
+- Mojoliciousのインストール
 - mapとgrep
 - while
-- next, last, redo
+- next, last
 - 後置if, 後置for
 - 前回の復習
 - package / 名前空間
@@ -14,6 +16,40 @@
 # 前回の復習
 
 - [前回の復習問題](https://github.com/perl-entrance-org/workshop-2013-04/blob/master/practice.md)の｢calc.pl｣の一部のを解きながら, サブルーチンを復習しましょう.
+
+# Mojoliciousのインストール
+
+## Mojoliciousのインストール
+- 第6回の｢Webサービス開発｣で利用するWAF, Mojoliciousをインストールしてみましょう
+    - 予め, plenv等でシステム以外のPerlを用意しておいてください
+    - 詳しくは, #1-Bの資料で解説しています
+
+## Mojoliciousのインストール
+
+    $ cpanm Mojolicious
+
+- ...で, 終わりです
+    - 多少時間がかかります. 暫く待ちましょう
+    - `1 distribution installed`と表示されていれば成功です
+
+## 動作確認
+
+    $ mojo create lite_app Sample
+      [exist] /home/fukumoto/sandbox
+      [write] /home/fukumoto/sandbox/Hoge
+      [chmod] Hoge 744
+
+- Mojoliciousのテンプレート(雛形)を作ってみます
+    - `mojo`はMojoliciousが提供するコマンドです
+
+## 動作確認
+
+    $ morbo Hoge
+    [Sun Dec  8 09:38:11 2013] [info] Listening at "http://*:3000".
+    Server available at http://127.0.0.1:3000.
+
+- `mojo create`コマンドが生成する`Hoge`を`morbo`コマンドで実行します
+    - ブラウザに, URLとして｢localhost:3000｣と入力した際, ｢Welcome to the Mojolicious real-time web framework!｣と表示されていればOKです!
 
 # map と grep
 
@@ -96,7 +132,7 @@
 - `()` 内の処理(*EXPR*)が `真` である間, `{}` 内の処理(*BLOCK*) を繰り返す
     - 今回の場合, 標準入力に `<C-d>`(`Ctrl`キーを押しながら`d`キー) が入力されるまで, 標準入力に入力された文字列を出力します
 
-# next, last, redo
+# next, last
 - 今回は使用頻度の高い `next`, `last` に関して紹介します
 
 ## next
@@ -104,8 +140,9 @@
     for my $lang (@languages) {
         if ($lang eq "perl") {
             print "Find Perl\n";
-            last;
+            next;
         }
+        print "$lang\n";
     }
 
 - 試しに上記のコードを実行してみましょう
