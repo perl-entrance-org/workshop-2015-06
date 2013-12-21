@@ -34,7 +34,7 @@
 
 ## 動作確認
 
-    $ mojo create lite_app Sample
+    $ mojo generate lite_app Sample
       [exist] /home/fukumoto/sandbox
       [write] /home/fukumoto/sandbox/Hoge
       [chmod] Hoge 744
@@ -159,7 +159,7 @@
 ## 練習問題
     my @files = qw/papix.pl moznion.pm macopy.py boolfool.vim/;
 
-上記の配列を引数にして, 拡張子を全て `.pl` にする `map_pl` 関数と, 末尾(拡張子)が `pl`, `pm` であるものを抜き出す `grep_pl_and_pm` を作成してください
+上記の配列を引数にして, 拡張子の後ろに `.bak` を付け足す `map_bak` 関数と, 末尾(拡張子)が `pl`, `pm` であるものを抜き出す `grep_pl_and_pm` を作成してください
 
 # while
 `for` 文で繰り返し処理について学びましたが, `while` というものもあります
