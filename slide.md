@@ -150,9 +150,9 @@
 
 ## grep
     grep BLOCK LIST
-    grep { $_ * 2; } @array1;
+    grep { $_ % 2 == 0; } @array1;
     grep EXPR, LIST
-    grep $_ * 2, @array1;
+    grep $_ % 2 == 0, @array1;
 
 - 構文は `map` と同様です
 
