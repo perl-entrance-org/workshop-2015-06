@@ -32,7 +32,7 @@ ___
 ___
 ## Mojoliciousのインストール
 - 第6回の｢Webサービス開発｣で利用するWAF、Mojoliciousをインストールしてみましょう
-    - 予め、plenv等でシステム以外のPerlを用意しておいてください
+    - あらかじめ plenv 等でシステム以外のPerlを用意しておいてください
     - 詳しくは、#1-Bの資料で解説しています
 
 ___
@@ -40,8 +40,8 @@ ___
 
     $ cpanm Mojolicious
 
-- ...で、終わりです
-    - 多少時間がかかります。暫く待ちましょう
+- 以上です
+    - 多少時間がかかります。しばらく待ちましょう
     - `1 distribution installed`と表示されていれば成功です
 
 ___
@@ -104,9 +104,9 @@ ___
 - 今は1枚のスクリプトに全て書いていますが、通常これらは別ファイルに分けて記述します
 
 ___
-## そして第6回へ...
+## そして第6回へ……
 - 第6回では、いよいよMojoliciousを利用したWebサービスの開発に挑戦します!
-- ...が、その前に、第5回まで紹介できなかったPerlの便利な機能と、テストについて紹介していきたいと思います
+- ……が、その前に、第5回まで紹介できなかったPerlの便利な機能と、テストについて紹介していきたいと思います
 
 ---
 # map と grep
@@ -208,7 +208,7 @@ ___
 
 ___
 ## next
-    my @languages = qw/c ruby papix perl python java c++/;
+    my @languages = qw/c ruby perl python java c++/;
     for my $lang (@languages) {
         if ($lang eq "perl") {
             print "Find Perl\n";
@@ -223,7 +223,6 @@ ___
 ## 実行結果 (next)
     c
     ruby
-    papix
     Find Perl
     python
     java
@@ -234,7 +233,7 @@ ___
 
 ___
 ## last
-    my @languages = qw/c ruby papix perl python java c++/;
+    my @languages = qw/c ruby perl python java c++/;
     for my $lang (@languages) {
         if ($lang eq "perl") {
             print "Find Perl\n";
@@ -250,7 +249,6 @@ ___
 ## 実行結果 (last)
     c
     ruby
-    papix
     Find Perl
 
 - `$lang[3]` の `perl` という文字列が `if` 文の条件式と一致し、 `last` に到達した時点で `for` ループを抜けます。これにより、その後のループで表示されるはずだった `python`, `java`, `c++` という文字列が表示されません
@@ -260,51 +258,61 @@ ___
 
 ___
 ## 後置if, 後置for
+通常、if文やfor文は以下のように書きますが、
+
+    #if文
     if ($lang eq "perl") {
       print "Find Perl\n";
     }
+
+    #for文
     for my $foo (1 .. 100) {
       print $foo, "\n";
     }
 
-- これらのコードには別の書き方があります
+これらのコードには別の書き方があります
 
 ___
 ## 後置 if
+if文は以下のように1行で書くことができます（「ワンライナー」と言います）
+
     print "Find Perl\n" if $lang eq "perl";
 
-- このようにワンライナーで書くことができます
-    - `;` の位置に注意してください
-
 ___
 ## 後置 if
+この際、このように書くことはできますが、
+
     print "FizzBuzz\n" if $var % 15;
+
+このように書くことはできません
+
     print "Fizz\n" elsif $var % 3;
     print "Buzz\n" elsif $var % 15;
 
-- こういったコードを書くことはできません
-    - 1行目は問題ありませんが、2, 3行目で `syntax error` となります
+- `syntax error` となります
 
 ___
 ## 後置for
+for文を1行で書く場合、リスト内の要素は `$_` に格納されます
+
     print $_ for (1 .. 100);
 
-- リスト内の要素は、`$_` に格納されます
-
 ___
 ## 後置for
-    print $val for my $val (1 .. 100);
+この際、このようなコードを書くことはできません
 
-- こういったコードを書くことはできません
+    print $val for my $val (1 .. 100);
 
 ___
 ## 練習問題
 
-- 引数として与えられた文字列が、`数値A 演算子 数値B`という文字列であれば、その値を計算して、結果を返すような関数`calc_string`を書いてみましょう
-    - ｢数値A｣は任意の桁の正･負の整数とします. また、演算子は`+-*/%`が使えるものとします.
-    - 但し、引数が与えられなかった場合(空の文字列の場合)は、undefを返します
-    - また、`数値A 演算子 数値B`というフォーマットと一致しない場合もundefを返します
-- 関数`calc_string`とwhile文を使って、`Ctrl`キーと`d`キーを押すまでの間標準入力から文字列を受け取り、文字列に書かれた式を計算するようなコードを書いてみましょう
+- 引数として与えられた文字列が、`数値A 演算子 数値B`という文字列であれば、その式を計算して結果を返す関数`calc_string`を書いてみましょう
+    - 「数値A」「演算子」「数値B」の間にはそれぞれ半角スペースが入っています
+    - 数値は正･負の整数とし、演算子は`+-*/%`が使えるものとします
+    - 引数が与えられなかった場合（空の文字列の場合)は、undefを返すこととます
+    - 引数が `数値A 演算子 数値B` というフォーマットに一致しない場合もundefを返すこととします
+- 関数`calc_string`とwhile文を使って、`Ctrl`キーと`d`キーを押すまでの間、標準入力から文字列を受け取り、文字列に書かれた式を計算するようなコードを書いてみましょう
+
 
 ---
 # package / 名前空間
@@ -312,25 +320,27 @@ ___
 ___
 ## packageとは?
 - ある処理を行う`output`サブルーチンがあるとします
-- それとは別に、`output`サブルーチンと同種の機能を持った、少しだけ処理の異なるサブルーチンを作りたくなったとします
-- package とは、｢XXXXの`output`｣のように（XXXXが数種類ある）、サブルーチンのグループを作る機能です
+- それとは別に、`output`と同種の機能を持った、でも少しだけ処理の異なるサブルーチンを作りたくなったとします
+- package とは、｢XXの`output`｣のように（XXが数種類ある）、サブルーチンのグループを作る機能です
 
 ___
 ## packageの宣言
 
-    package Hoge {
+    package Foo {
         sub output {
             my $str = shift @_;
             print "$str\n";
         }
     }
 
-- 渡した文字列に改行を付けて表示してくれる`output`という関数を、`Hoge`というpackageの中に作ってみます
+- 渡した文字列に改行を付けて表示してくれる`output`という関数を、`Foo`というpackageの中に作ってみます
+  - ここで出てきた`Foo`は、意味のない「仮の名前」（メタ構文変数）です。このように、プログラミングで変数や関数に名前を付ける際、どのような名前でも良い場合には `foo, bar, baz, qux...` がよく使われます（順番も左記の通り）
+  - 日本では `hoge, piyo, fuga` なども使われますが、特別の理由がなければ `foo, bar...`で良いでしょう
 
 ___
 ## packageの宣言
 
-    package Hoge {
+    package Foo {
         ...
     }
 
@@ -341,7 +351,7 @@ ___
 
 古いPerl（OSに入っているPerlなど）では、以下のように書きます
 
-    package Hoge;
+    package Foo;
     ...
 
 - この場合、packageの範囲は次のpackage宣言までです
@@ -349,7 +359,7 @@ ___
 ___
 ## package 内のサブルーチンを使う
 
-    package Hoge {
+    package Foo {
         sub output {
             my $str = shift @_;
             print "$str\n";
@@ -363,13 +373,13 @@ ___
 ___
 ## package 内のサブルーチンを使う
 
-    package Hoge {
+    package Foo {
         sub output {
             my $str = shift @_;
             print "$str\n";
         }
     }
-    Hoge::output("hello, world!"); # => hello, world![改行]
+    Foo::output("hello, world!"); # => hello, world![改行]
 
 - package内のサブルーチンを使いたい時は、`package名::サブルーチン名`で呼び出します
 
@@ -377,7 +387,7 @@ ___
 ## 練習問題
 
 - `PerlEntrance`というpackageの中に、`tokyo`, `osaka`という名前の、それぞれ引数を持たないサブルーチンを作りましょう
-- `tokyo`には`papix!!!`, `osaka`には`boolfool!!!`という文字列を返す機能を持たせましょう
+- `tokyo`には`Tokyo!`, `osaka`には`Osaka!`という文字列を返す機能を持たせましょう
 
 ---
 # モジュール
@@ -388,9 +398,9 @@ ___
     use Acme::Nyaa;
     use Acme::FizzBuzz;
 
-- 上記は、2013年のPerl入学式 in YAPC::Asia で使ったモジュールです
+- 上記は、2013年の「Perl入学式 in YAPC::Asia」で使ったモジュールです
 - このように、処理をひとまとめにして別の場所に置き、`use モジュール名;`で呼び出すものをモジュールと呼びます
-- モジュールに分けると、ファイルが長くなって見通しが悪くなることを防ぐことが出来ます
+- モジュールに分けると、ファイルが長くなって見通しが悪くなることを防ぐことができます
     - それでは、自作モジュールを作っていきましょう
 
 ___
@@ -450,7 +460,7 @@ ___
     use Test::More;
     use PerlEntrance;
 
-    is PerlEntrance::tokyo(), 'moznion!!!';
+    is PerlEntrance::tokyo(), 'Fukuoka!';
 
     done_testing();
 
@@ -463,21 +473,21 @@ ___
 - 今回のテストでは、Test::More というモジュールを使います
 - 上のテストでは、`is`という Test::More のサブルーチンを使いました
     - `is <テストしたいサブルーチン> <返ってくるのが期待される値>`のように使います
-    - `papix!!!`と返ってくれば「成功」ですが、今回はあえて「失敗」させるために別の文字列`moznion!!!`を使っています
+    - `Tokyo!`と返ってくれば「成功」ですが、今回はあえて「失敗」させるために別の文字列`Fukuoka!`を使っています
 
 ___
 ## prove
 
     practice.t .. 1/?
     #   Failed test at practice.t line 5.
-    #          got: 'papix!!!'
-    #     expected: 'moznion!!!'
+    #          got: 'Tokyo!'
+    #     expected: 'Fukuoka!'
     # Looks like you failed 1 test of 1.
     practice.t .. Dubious, test returned 1 (wstat 256, 0x100)
     Failed 1/1 subtests
 
 - Test::More を使ったテストコードを`prove`というコマンドで実行すると、テストの状況を分かりやすく表示できます
-- 上記の表示は、「テストでは`moznion!!!`という文字列が返ってくることを期待（`expected`）しているのに、実際のコードでは`papix!!!`という文字が返ってきた（`got`）ので、テストが失敗した（`Failed`）」という意味です
+- 上記の表示は、「テストでは`Fukuoka!`という文字列が返ってくることを期待（`expected`）しているのに、実際のコードでは`Tokyo!`という文字が返ってきた（`got`）ので、テストが失敗した（`Failed`）」という意味です
 
 ___
 ## 練習問題
@@ -485,6 +495,7 @@ ___
     - ｢テストコードの方を直すんじゃないの？｣と思うかもしれません
     - 実際の開発では、テストと元のコードのどちらが正しいかという前提状況によって、どちらのコードを直すかを決めます。今回は、テストの方が正しいと仮定して進めます
     - `All tests successful.`と出たら、テストは通っています！
+
 
 ---
 # テストを使った開発
