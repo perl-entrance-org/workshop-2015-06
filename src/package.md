@@ -61,4 +61,4 @@
 ## 練習問題
 
 - `PerlEntrance`というpackageの中に、`tokyo`, `osaka`という名前の、それぞれ引数を持たないサブルーチンを作りましょう
-- `tokyo`には`papix!!!`, `osaka`には`boolfool!!!`という文字列を返す機能を持たせましょう
+- `tokyo`には`Tokyo!`, `osaka`には`Osaka!`という文字列を返す機能を持たせましょう
