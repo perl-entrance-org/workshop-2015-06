@@ -2,23 +2,25 @@
 
 ## packageとは?
 - ある処理を行う`output`サブルーチンがあるとします
-- それとは別に、`output`サブルーチンと同種の機能を持った、少しだけ処理の異なるサブルーチンを作りたくなったとします
-- package とは、｢XXXXの`output`｣のように（XXXXが数種類ある）、サブルーチンのグループを作る機能です
+- それとは別に、`output`と同種の機能を持った、でも少しだけ処理の異なるサブルーチンを作りたくなったとします
+- package とは、｢XXの`output`｣のように（XXが数種類ある）、サブルーチンのグループを作る機能です
 
 ## packageの宣言
 
-    package Hoge {
+    package Foo {
         sub output {
             my $str = shift @_;
             print "$str\n";
         }
     }
 
-- 渡した文字列に改行を付けて表示してくれる`output`という関数を、`Hoge`というpackageの中に作ってみます
+- 渡した文字列に改行を付けて表示してくれる`output`という関数を、`Foo`というpackageの中に作ってみます
+  - ここで出てきた`Foo`は、意味のない「仮の名前」（メタ構文変数）です。このように、プログラミングで変数や関数に名前を付ける際、どのような名前でも良い場合には `foo, bar, baz, qux...` がよく使われます（順番も左記の通り）
+  - 日本では `hoge, piyo, fuga` なども使われますが、特別の理由がなければ `foo, bar...`で良いでしょう
 
 ## packageの宣言
 
-    package Hoge {
+    package Foo {
         ...
     }
 
@@ -28,14 +30,14 @@
 
 古いPerl（OSに入っているPerlなど）では、以下のように書きます
 
-    package Hoge;
+    package Foo;
     ...
 
 - この場合、packageの範囲は次のpackage宣言までです
 
 ## package 内のサブルーチンを使う
 
-    package Hoge {
+    package Foo {
         sub output {
             my $str = shift @_;
             print "$str\n";
@@ -48,13 +50,13 @@
 
 ## package 内のサブルーチンを使う
 
-    package Hoge {
+    package Foo {
         sub output {
             my $str = shift @_;
             print "$str\n";
         }
     }
-    Hoge::output("hello, world!"); # => hello, world![改行]
+    Foo::output("hello, world!"); # => hello, world![改行]
 
 - package内のサブルーチンを使いたい時は、`package名::サブルーチン名`で呼び出します
 
