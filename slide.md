@@ -8,7 +8,6 @@ ___
 ___
 ## 本日の内容
 - 前回の復習
-- Mojoliciousのインストール
 - mapとgrep
 - while
 - next, last
