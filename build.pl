@@ -10,7 +10,6 @@ my $dst_dir = '.';
 my @slides  = qw/
   intro.md
   review.md
-  install_mojolicious.md
   map_grep.md
   while.md
   next_last.md
