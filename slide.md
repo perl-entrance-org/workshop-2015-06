@@ -324,9 +324,9 @@ ___
 ___
 ## モジュールのインストール
 
-CPANに公開されているモジュールのインストールには`cpanm`コマンドを利用します
-cpanm自体のインストールはPerl入学式第１回[モジュールとCPAN](https://github.com/perl-entrance-org/workshop-2014-01/blob/master/slide2.md#user-content-%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E3%81%A8cpan)を参照してください
-それでは`Text::Truncate`をインストールしてみましょう
+- CPANに公開されているモジュールのインストールには`cpanm`コマンドを利用します  
+- cpanm自体のインストールはPerl入学式第１回[モジュールとCPAN](https://github.com/perl-entrance-org/workshop-2014-01/blob/master/slide2.md#user-content-%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E3%81%A8cpan)を参照してください  
+- それでは`Text::Truncate`をインストールしてみましょう
 
     $ cpanm Text::Truncate
 
@@ -335,20 +335,20 @@ ___
 
 ### ドキュメントを読む
 
-cpanmでインストールしたモジュールはperldocコマンドでドキュメントを読むことができます
-
     $ perldoc Text::Truncate
+
+- cpanmでインストールしたモジュールはperldocコマンドでドキュメントを読むことができます
 
 ### ソースコードを読む
 
-`perldoc -m`オプションをつけると、ソースコードを表示することができます
-
     $ perldoc -m Text::Truncate
+
+- `perldoc -m`オプションをつけると、ソースコードを表示することができます
 
 ___
 ## 練習問題
 
-実際にText::Truncateを使って、長い文字列を詰めてみましょう
+- 実際にText::Truncateを使って、長い文字列を詰めてみましょう
 
 ___
 ## 自作モジュールを作る
