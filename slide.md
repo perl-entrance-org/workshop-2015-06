@@ -261,12 +261,12 @@ ___
         ...
     }
 
-- packageを定義するためには、`paclage package名 { ... }`と書きます
+- packageを定義するためには、`package package名 { ... }`と書きます
 
 ___
 ## packageの宣言
 
-古いPerl（OSに入っているPerlなど）では、以下のように書きます
+以下のように書くこともできます。
 
     package Foo;
     ...
@@ -313,7 +313,7 @@ ___
 ## モジュールの話
 
     use Text::Truncate;
-     
+
     my $long_string = "This is a very long string";
     print truncstr( $long_string, 10); # => This is...
 
@@ -324,8 +324,8 @@ ___
 ___
 ## モジュールのインストール
 
-- CPANに公開されているモジュールのインストールには`cpanm`コマンドを利用します  
-- cpanm自体のインストールはPerl入学式第１回[モジュールとCPAN](https://github.com/perl-entrance-org/workshop-2014-01/blob/master/slide2.md#user-content-%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E3%81%A8cpan)を参照してください  
+- CPANに公開されているモジュールのインストールには`cpanm`コマンドを利用します
+- cpanm自体のインストールはPerl入学式第１回[モジュールとCPAN](https://github.com/perl-entrance-org/workshop-2014-01/blob/master/slide2.md#user-content-%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E3%81%A8cpan)を参照してください
 - それでは`Text::Truncate`をインストールしてみましょう
 
     $ cpanm Text::Truncate
@@ -373,8 +373,8 @@ ___
     use warnings;
     use PerlEntrance;
 
-    print PerlEntrance::tokyo(); # => papix!!!
-    print PerlEntrance::osaka(); # => boolfool!!!
+    print PerlEntrance::tokyo(); # => Tokyo!
+    print PerlEntrance::osaka(); # => Osaka!
 
 - `practice.pl`をこのように書くと、PerlEntrance.pm に書いたサブルーチンを使えるようになります
 - ただし、`perl -Ilib practice.pl`のように実行してください
@@ -383,7 +383,7 @@ ___
 ___
 ## 練習問題
 
-- `PerlBeginners`というモジュール/packageを作って、その中に`perllevel`というサブルーチンを作りましょう
+- `PerlBeginners`というモジュールを作って、その中に`perllevel`というサブルーチンを作りましょう
 - `perllevel`は1から10の整数の引数を取ります
 
 ___
