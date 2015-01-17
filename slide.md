@@ -312,16 +312,48 @@ ___
 ___
 ## モジュールの話
 
-    use Acme::Nyaa;
-    use Acme::FizzBuzz;
+    use Text::Truncate;
+     
+    my $long_string = "This is a very long string";
+    print truncstr( $long_string, 10); # => This is...
 
-- 上記は、2013年の「Perl入学式 in YAPC::Asia」で使ったモジュールです
 - このように、処理をひとまとめにして別の場所に置き、`use モジュール名;`で呼び出すものをモジュールと呼びます
+- モジュールはCPANと呼ばれるアーカイブに集積されているものを利用したり、自分で作ることも出来ます
 - モジュールに分けると、ファイルが長くなって見通しが悪くなることを防ぐことができます
-    - それでは、自作モジュールを作っていきましょう
 
 ___
-## モジュールの構成
+## モジュールのインストール
+
+- CPANに公開されているモジュールのインストールには`cpanm`コマンドを利用します  
+- cpanm自体のインストールはPerl入学式第１回[モジュールとCPAN](https://github.com/perl-entrance-org/workshop-2014-01/blob/master/slide2.md#user-content-%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E3%81%A8cpan)を参照してください  
+- それでは`Text::Truncate`をインストールしてみましょう
+
+    $ cpanm Text::Truncate
+
+___
+## perldocを使う
+
+### ドキュメントを読む
+
+    $ perldoc Text::Truncate
+
+- cpanmでインストールしたモジュールはperldocコマンドでドキュメントを読むことができます
+
+### ソースコードを読む
+
+    $ perldoc -m Text::Truncate
+
+- `perldoc -m`オプションをつけると、ソースコードを表示することができます
+
+___
+## 練習問題
+
+- 実際にText::Truncateを使って、長い文字列を詰めてみましょう
+
+___
+## 自作モジュールを作る
+
+### モジュールの構成
 
     作業ディレクトリ
      |- plactice.pl # モジュールを実行するスクリプト
@@ -334,7 +366,7 @@ ___
 - PerlEntrance.pm のコードの一番下に、`1;`とだけ書いた行を追加してください
 
 ___
-## モジュールを使う
+## 自作モジュールを使う
 
     #!/usr/bin/env perl
     use strict;
