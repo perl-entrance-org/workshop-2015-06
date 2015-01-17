@@ -24,11 +24,11 @@
         ...
     }
 
-- packageを定義するためには、`paclage package名 { ... }`と書きます
+- packageを定義するためには、`package package名 { ... }`と書きます
 
 ## packageの宣言
 
-古いPerl（OSに入っているPerlなど）では、以下のように書きます
+以下のように書くこともできます。
 
     package Foo;
     ...
