@@ -2,7 +2,7 @@
 
 ## テストを書く
 
-`practice.pl`が置いてあるディレクトリに `plactice.t`という名前で以下のようなコードを書きます
+`practice.pl`が置いてあるディレクトリに `practice.t`という名前で以下のようなコードを書きます
 
     use Test::More;
     use PerlEntrance;
