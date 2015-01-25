@@ -20,6 +20,7 @@ my @slides  = qw/
   tdd.md
   qanda.md
   outro.md
+  appendix.md
   /;
 my $slide
   = "<!-- このファイルは直接編集せずに src ディレクトリ内のファイルを編集し build.pl を実行してください。 -->\n";

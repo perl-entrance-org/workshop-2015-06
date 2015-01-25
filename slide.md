@@ -171,56 +171,6 @@ ___
 - `$lang[3]` の `perl` という文字列が `if` 文の条件式と一致し、 `last` に到達した時点で `for` ループを抜けます。これにより、その後のループで表示されるはずだった `python`, `java`, `c++` という文字列が表示されません
 
 ---
-# 後置if, 後置for
-
-___
-## 後置if, 後置for
-通常、if文やfor文は以下のように書きますが、
-
-    #if文
-    if ($lang eq "perl") {
-      print "Find Perl\n";
-    }
-
-    #for文
-    for my $foo (1 .. 100) {
-      print $foo, "\n";
-    }
-
-これらのコードには別の書き方があります
-
-___
-## 後置 if
-if文は以下のように1行で書くことができます（「ワンライナー」と言います）
-
-    print "Find Perl\n" if $lang eq "perl";
-
-___
-## 後置 if
-この際、このように書くことはできますが、
-
-    print "FizzBuzz\n" if $var % 15;
-
-このように書くことはできません
-
-    print "Fizz\n" elsif $var % 3;
-    print "Buzz\n" elsif $var % 15;
-
-- `syntax error` となります
-
-___
-## 後置for
-for文を1行で書く場合、リスト内の要素は `$_` に格納されます
-
-    print $_ for (1 .. 100);
-
-___
-## 後置for
-この際、このようなコードを書くことはできません
-
-    print $val for my $val (1 .. 100);
-
-___
 ## 練習問題
 
 - 引数として与えられた文字列が、`数値A 演算子 数値B`という文字列であれば、その式を計算して結果を返す関数`calc_string`を書いてみましょう
@@ -492,3 +442,54 @@ ___
 
 ---
 # お疲れさまでした
+
+---
+# 後置if, 後置for
+
+___
+## 後置if, 後置for
+通常、if文やfor文は以下のように書きますが、
+
+    #if文
+    if ($lang eq "perl") {
+      print "Find Perl\n";
+    }
+
+    #for文
+    for my $foo (1 .. 100) {
+      print $foo, "\n";
+    }
+
+これらのコードには別の書き方があります
+
+___
+## 後置 if
+if文は以下のように1行で書くことができます（「ワンライナー」と言います）
+
+    print "Find Perl\n" if $lang eq "perl";
+
+___
+## 後置 if
+この際、このように書くことはできますが、
+
+    print "FizzBuzz\n" if $var % 15;
+
+このように書くことはできません
+
+    print "Fizz\n" elsif $var % 3;
+    print "Buzz\n" elsif $var % 15;
+
+- `syntax error` となります
+
+___
+## 後置for
+for文を1行で書く場合、リスト内の要素は `$_` に格納されます
+
+    print $_ for (1 .. 100);
+
+___
+## 後置for
+この際、このようなコードを書くことはできません
+
+    print $val for my $val (1 .. 100);
+
