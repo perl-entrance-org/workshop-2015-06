@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 use utf8;
-use v5.10;
+use v5.12;
 use open qw/:encoding(utf-8) :std/;
 
 use DDP {deparse => 1};

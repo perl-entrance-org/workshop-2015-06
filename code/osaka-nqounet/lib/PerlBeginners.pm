@@ -1,6 +1,6 @@
 package PerlBeginners;
 use utf8;
-use v5.10;
+use v5.12;
 
 sub perllevel {
     my ($level) = @_;
