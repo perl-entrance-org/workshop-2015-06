@@ -10,8 +10,8 @@
 ## for で作成
     my @array1 = ( 1 .. 5 );
     my @array2 = ();
-    for my $val (@array1) {
-      push @array2, $val * 2;
+    for my $foo (@array1) {
+      push @array2, $foo * 2;
     }
     print "@array2"; # => 2 4 6 8 10
 
@@ -42,9 +42,9 @@
 ## for で作成
     my @array1 = ( 1 .. 10 );
     my @array2 = ();
-    for my $val (@array1) {
-      if ($val % 2 == 0) {
-        push @array2, $val;
+    for my $foo (@array1) {
+      if ($foo % 2 == 0) {
+        push @array2, $foo;
       }
     }
     print "@array2"; # => 2 4 6 8 10
@@ -53,7 +53,7 @@
 
 ## grep を使う
     my @array1 = ( 1 .. 10 );
-    my @array2 = grep { $_ % 2 == 0; } @array1;
+    my @array2 = grep { $_ % 2 == 0 } @array1;
     print "@array2"; # => 2 4 6 8 10
 
 - 上記のように一行で処理することができます
@@ -66,4 +66,5 @@
 ## 練習問題
     my @files = qw/foo.pl bar.pm baz.rb qux.py/;
 
-上記の配列を引数にして、拡張子の後ろに `.bak` を付け足す `map_bak` 関数と、末尾(拡張子)が `pl`、`pm` であるものを抜き出す `grep_pl_and_pm` を作成してください
+- 上記の配列を引数として、拡張子（`.pl`、`.pm` など）の後ろに `.bak` を付け足す関数 `map_bak` を作成してください
+- 拡張子が `pl`、`pm` であるものを抜き出す関数 `grep_pl_and_pm` を作成してください
