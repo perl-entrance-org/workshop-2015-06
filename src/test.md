@@ -11,7 +11,7 @@
 
     done_testing();
 
-- そのディレクトリで、`prove -Ilib practice.t`と実行してみましょう
+- そのディレクトリで、`prove -Ilib practice.t` と実行してみましょう
     - どうなりましたか？
 
 ## Test::More

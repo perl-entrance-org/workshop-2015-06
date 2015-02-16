@@ -1,4 +1,4 @@
-# 後置if, 後置for
+# 付録: 後置if, 後置for
 
 ## 後置if, 後置for
 通常、if文やfor文は以下のように書きますが、
@@ -21,16 +21,13 @@ if文は以下のように1行で書くことができます（「ワンライ�
     print "Find Perl\n" if $lang eq "perl";
 
 ## 後置 if
-この際、このように書くことはできますが、
+この際、このように書くことはできません
 
-    print "FizzBuzz\n" if $var % 15;
+    print "Find Perl\n" if $lang eq "perl";
+    print "Find Ruby\n" elsif $lang eq "ruby";
+    print "Find Python\n" elsif $lang eq "python";
 
-このように書くことはできません
-
-    print "Fizz\n" elsif $var % 3;
-    print "Buzz\n" elsif $var % 15;
-
-- `syntax error` となります
+- `elsif` を使った行は `syntax error` になります
 
 ## 後置for
 for文を1行で書く場合、リスト内の要素は `$_` に格納されます
@@ -40,5 +37,5 @@ for文を1行で書く場合、リスト内の要素は `$_` に格納されま�
 ## 後置for
 この際、このようなコードを書くことはできません
 
-    print $val for my $val (1 .. 100);
+    print $foo for my $foo (1 .. 100);
 

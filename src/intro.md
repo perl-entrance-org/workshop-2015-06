@@ -15,10 +15,10 @@
 - mapとgrep
 - while
 - next, last
-- 後置if, 後置for
 - package / 名前空間
 - モジュール
 - テスト
 - テストを使った開発
+- 付録: 後置if, 後置for
 
 ## 皆さんで自己紹介
