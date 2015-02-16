@@ -17,8 +17,8 @@
 - CPANに公開されているモジュールをインストールする際には`cpanm`コマンドを使います
 - cpanmはPerl入学式第1回でインストールしています。まだの方は資料を参照してください
   - [第1回資料: モジュールとCPAN](https://github.com/perl-entrance-org/workshop-2014-01/blob/master/slide2.md#user-content-%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E3%81%A8cpan)
-- 今回はモジュールの例として、`Text::Truncate` をインストールしてみましょう
 
+今回はモジュールの例として、`Text::Truncate` をインストールしてみましょう
 
     $ cpanm Text::Truncate
 
