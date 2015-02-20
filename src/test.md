@@ -2,7 +2,7 @@
 
 ## テストを書く
 
-`practice.pl`が置いてあるディレクトリに `practice.t`という名前で以下のようなコードを書きます
+`PerlEntrance`のモジュールに戻って、`practice.pl`と同じディレクトリに `practice.t`という名前で以下のコードを書きます
 
     use Test::More;
     use PerlEntrance;
