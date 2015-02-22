@@ -2,8 +2,8 @@
 use strict;
 use warnings;
 use Data::Dumper;
-use DDP {deparse => 1};
 
+# 短縮版
 sub calc {
     my ($l, $r) = @_;
     if ($l =~ /^\d+$/ && $r =~ /^\d+$/) {
@@ -19,9 +19,12 @@ sub calc {
         return undef;
     }
 }
-print Dumper calc(5, 'hi!');
+print Dumper calc(4, 17);
+print Dumper calc(5, 'Hi!');
 
 __END__
+
+# 2段階版
 sub calc {
     my ($l, $r) = @_;
     if ($l =~ /^\d+$/ && $r =~ /^\d+$/) {
@@ -42,4 +45,7 @@ sub calc {
         return undef;
     }
 }
-print Dumper calc(5, 'hi!');
+print Dumper calc(4, 17);
+print Dumper calc(5, 'Hi!');
+
+__END__
