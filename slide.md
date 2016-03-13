@@ -31,7 +31,7 @@ ___
 ---
 # 前回の復習
 
-- [前回の復習問題](https://github.com/perl-entrance-org/workshop-2014-04/blob/master/practice.md)の｢calc.pl｣の一部を解きながら、サブルーチンを復習しましょう。
+- [前回の復習問題](https://github.com/perl-entrance-org/workshop-2015-04/blob/master/practice.md)の｢calc.pl｣を解きながら、サブルーチンを復習しましょう。
 
 ---
 # map と grep
@@ -316,7 +316,7 @@ ___
 ### モジュールの構成
 
     作業ディレクトリ
-     |- plactice.pl # モジュールを実行するスクリプト
+     |- practice.pl # モジュールを実行するスクリプト
      |- lib
         |- PerlEntrance.pm # モジュール本体
 
