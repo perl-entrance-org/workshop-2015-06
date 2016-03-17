@@ -2,6 +2,8 @@ package YAPC;
 use utf8;
 use strict;
 use warnings;
+use Time::Piece;
+
 
 sub year {2015}
 
@@ -36,6 +38,14 @@ sub is_yet {
         return 1;
     }
     return;
+}
+
+sub is_yet_now {
+    my $now = localtime;
+
+    my $yapc_date = sprintf '%04d/%02d/%02d', year(), month(), day();
+    my $yapc_time = Time::Piece->strptime($yapc_date, '%Y/%m/%d');
+    return $now < $yapc_time;
 }
 
 1;
